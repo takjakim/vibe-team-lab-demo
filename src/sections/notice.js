@@ -49,6 +49,7 @@ export function render(root, data) {
             onclick: () => {
               saveDismissed([]);
               render(root, data);
+              root.querySelector('button')?.focus();
             },
           },
           '닫은 공지 다시 보기',
@@ -71,10 +72,12 @@ export function render(root, data) {
           {
             type: 'button',
             class: 'btn btn-ghost btn-sm',
-            'aria-label': '공지 닫기',
+            'aria-label': `${n.title} 공지 닫기`,
             onclick: () => {
               saveDismissed([...loadDismissed(), n.id]);
               render(root, data);
+              // 누른 버튼이 사라지므로 섹션 안 첫 버튼으로 포커스를 옮긴다
+              root.querySelector('button')?.focus();
             },
           },
           '닫기',
