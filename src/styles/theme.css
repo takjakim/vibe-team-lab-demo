@@ -5,7 +5,37 @@
  */
 
 :root[data-theme="dark"] {
-  /* TODO(역할 D): color-scheme: dark; 와 함께 --color-bg, --color-surface, --color-text 등 다크 값을 채운다. */
+  color-scheme: dark;
+
+  --color-bg: #0f1420;
+  --color-surface: #181e2c;
+  --color-surface-muted: #222a3b;
+  --color-text: #e8ecf4;
+  --color-muted: #a8b2c7;
+  --color-border: #333c52;
+  --color-accent: #7da2ff;
+  --color-accent-soft: #1f2c52;
+  --color-accent-contrast: #0b1020;
+  --color-danger: #ff9090;
+  --color-danger-soft: #3a1c20;
+  --color-success: #6fd69a;
+  --color-warning-soft: #3b3216;
+  --color-focus: #a5bcff;
+  --shadow: 0 1px 2px rgb(0 0 0 / 40%), 0 2px 6px rgb(0 0 0 / 30%);
 }
 
-/* TODO(역할 D): 헤더의 테마 토글 버튼(.theme-toggle) 스타일을 다듬는다. */
+/* 헤더의 테마 토글 버튼 */
+.theme-toggle {
+  min-height: 36px;
+  padding: 0 var(--space-3);
+  font-size: 0.875rem;
+}
+
+.theme-toggle:hover {
+  background: var(--color-surface-muted);
+}
+
+/* 테마 섹션 */
+.theme-status {
+  margin: var(--space-3) 0 0;
+}
