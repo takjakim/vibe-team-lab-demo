@@ -8,15 +8,25 @@ export const meta = { id: 'schedule', title: '주간 일정', source: 'schedule.
 const DAYS = ['월', '화', '수', '목', '금'];
 const DAY_BY_INDEX = ['일', '월', '화', '수', '목', '금', '토']; // Date.getDay() 순서
 
+// "9:00", "10:30" 같은 시각을 분 단위 숫자로 바꾼다. 형식이 아니면 맨 뒤로 보낸다.
+function toMinutes(time) {
+  const match = /^(\d{1,2}):(\d{2})$/.exec(String(time ?? '').trim());
+  return match ? Number(match[1]) * 60 + Number(match[2]) : Number.POSITIVE_INFINITY;
+}
+
+// 시각 오름차순 비교. 둘 다 형식이 아니면 원래 순서를 유지한다.
+function byTime(a, b) {
+  const diff = toMinutes(a.time) - toMinutes(b.time);
+  return Number.isNaN(diff) ? 0 : diff;
+}
+
 export function render(root, data) {
   const items = Array.isArray(data?.items) ? data.items : [];
   const today = DAY_BY_INDEX[new Date().getDay()];
 
   const groups = DAYS.map((day) => {
-    // 같은 요일 항목을 시간 문자열(HH:MM) 오름차순으로 정렬한다.
-    const dayItems = items
-      .filter((item) => item.day === day)
-      .sort((a, b) => String(a.time).localeCompare(String(b.time)));
+    // 같은 요일 항목을 시각 오름차순으로 정렬한다. 문자열 비교는 9:00을 10:00 뒤에 두므로 숫자로 비교한다.
+    const dayItems = items.filter((item) => item.day === day).sort(byTime);
 
     const body = dayItems.length
       ? el(
