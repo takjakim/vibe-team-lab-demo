@@ -16,5 +16,11 @@
     "role": "강사",
     "focus": "충돌 드릴용 카드입니다. 해결할 때 이 카드와 자기 카드를 모두 남깁니다.",
     "github": "drill-instructor"
+  },
+  {
+    "name": "이두리",
+    "role": "역할 B",
+    "focus": "할 일 보드",
+    "github": "member-b"
   }
 ]
