@@ -28,13 +28,7 @@
 .theme-toggle {
   min-height: 36px;
   padding: 0 var(--space-3);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-sm);
-  background: transparent;
-  color: var(--color-text);
-  font: inherit;
   font-size: 0.875rem;
-  cursor: pointer;
 }
 
 .theme-toggle:hover {
