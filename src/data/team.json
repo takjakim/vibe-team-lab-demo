@@ -22,5 +22,11 @@
     "role": "역할 B",
     "focus": "할 일 보드",
     "github": "member-b"
+  },
+  {
+    "name": "박세나",
+    "role": "역할 C",
+    "focus": "주간 일정",
+    "github": "member-c"
   }
 ]
