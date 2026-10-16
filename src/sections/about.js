@@ -1,17 +1,39 @@
 // 역할 A: 팀 소개
 // 담당 파일: 이 파일 하나. data는 src/data/team.json 배열이다.
-// 완성 목표: 팀원마다 이름, 역할, 관심 분야, GitHub 링크를 담은 카드를 그리드로 보여 준다.
-import { placeholder } from '../lib/dom.js';
+import { el } from '../lib/dom.js';
 
 export const meta = { id: 'about', title: '팀 소개', source: 'team.json' };
 
+// 팀원 한 명을 카드로 만든다.
+function card(member) {
+  const github = String(member.github ?? '').trim();
+  return el('article', { class: 'profile' }, [
+    el('h3', {}, member.name),
+    el('p', {}, el('span', { class: 'badge' }, member.role)),
+    el('p', {}, member.focus),
+    github
+      ? el(
+          'p',
+          {},
+          el(
+            'a',
+            {
+              href: `https://github.com/${encodeURIComponent(github)}`,
+              target: '_blank',
+              rel: 'noopener noreferrer',
+            },
+            `GitHub: ${github}`,
+          ),
+        )
+      : null,
+  ]);
+}
+
 export function render(root, data) {
-  // TODO(역할 A): 아래 자리표시자를 지우고 data의 각 항목을 카드로 그린다.
-  // 도움말: ../lib/dom.js의 el()과 base.css의 .grid, .profile 클래스를 쓴다.
-  const count = Array.isArray(data) ? data.length : 0;
-  placeholder(root, {
-    role: '역할 A',
-    file: 'src/sections/about.js',
-    note: `team.json에 ${count}명의 카드 데이터가 준비되어 있습니다.`,
-  });
+  const members = Array.isArray(data) ? data : [];
+  if (members.length === 0) {
+    root.replaceChildren(el('p', { class: 'empty' }, '아직 등록된 팀원이 없습니다.'));
+    return;
+  }
+  root.replaceChildren(el('div', { class: 'grid' }, members.map(card)));
 }
