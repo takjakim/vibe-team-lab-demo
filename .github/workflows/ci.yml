@@ -1,0 +1,23 @@
+# PR과 main 푸시마다 검사 스크립트를 실행한다.
+# job 이름 check는 main 보호 규칙의 필수 상태 검사 이름과 같아야 한다.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: 검사 실행
+        run: node scripts/check.mjs

@@ -1,0 +1,41 @@
+name: 버그 보고
+description: 화면이나 검사 스크립트에서 발견한 문제를 보고합니다.
+title: "[버그] "
+labels: ["type:bug"]
+body:
+  - type: input
+    id: where
+    attributes:
+      label: 문제가 생긴 섹션 또는 파일
+      placeholder: 할 일 보드 / src/sections/board.js
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 재현 절차
+      value: |
+        1. 
+        2. 
+        3. 
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 기대한 결과
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 실제 결과
+      description: 오류 메시지나 node scripts/check.mjs 출력이 있으면 붙여 넣습니다.
+      render: text
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: 환경
+      placeholder: macOS 15, Chrome 141

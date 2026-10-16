@@ -1,0 +1,14 @@
+[
+  {
+    "name": "강사",
+    "role": "진행과 리뷰",
+    "focus": "워크숍 진행, PR 리뷰와 병합",
+    "github": "takjakim"
+  },
+  {
+    "name": "예시 팀원",
+    "role": "예시",
+    "focus": "카드 형식을 보여 주는 예시 항목",
+    "github": "octocat"
+  }
+]

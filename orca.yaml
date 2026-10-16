@@ -1,0 +1,9 @@
+# Orca 저장소 설정
+# 새 워크트리를 만들면 setup 명령이 실행되어 작업 시작 전에 저장소 상태를 검사한다.
+scripts:
+  setup: node scripts/check.mjs
+
+worktree:
+  # 워크트리끼리 공유할 폴더 목록. 이 저장소는 의존성이 없어 비워 둔다.
+  # 나중에 npm 패키지를 쓰게 되면 예: sharedDirectories: [node_modules]
+  sharedDirectories: []

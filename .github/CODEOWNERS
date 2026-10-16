@@ -1,0 +1,15 @@
+# 코드 소유자
+# 템플릿 상태에서는 기본 소유자만 활성화한다.
+# 팀 저장소를 만든 뒤 아래 역할별 줄의 주석을 풀고 자리표시자를 팀 아이디로 교체한다.
+# 나중에 적힌 줄이 앞의 규칙보다 우선한다.
+
+# 기본 소유자 (팀 아이디로 교체)
+*                           @takjakim
+
+# 역할별 담당 파일 (팀 아이디로 교체)
+# src/sections/about.js     @역할A자리표시자
+# src/sections/board.js     @역할B자리표시자
+# src/sections/schedule.js  @역할C자리표시자
+# src/sections/theme.js     @역할D자리표시자
+# src/styles/theme.css      @역할D자리표시자
+# src/sections/notice.js    @역할E자리표시자

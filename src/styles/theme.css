@@ -1,0 +1,11 @@
+/*
+ * 테마 스타일 (역할 D 담당)
+ * app.js가 html 요소에 data-theme="light" 또는 data-theme="dark"를 붙인다.
+ * base.css의 :root 색 변수를 아래에서 다크 값으로 덮어쓰면 화면 전체 색이 바뀐다.
+ */
+
+:root[data-theme="dark"] {
+  /* TODO(역할 D): color-scheme: dark; 와 함께 --color-bg, --color-surface, --color-text 등 다크 값을 채운다. */
+}
+
+/* TODO(역할 D): 헤더의 테마 토글 버튼(.theme-toggle) 스타일을 다듬는다. */

@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 실습 가이드
+    url: https://github.com/takjakim/vibe-team-lab/blob/main/docs/%EC%8B%A4%EC%8A%B5%EA%B0%80%EC%9D%B4%EB%93%9C.md
+    about: 실습 절차와 명령은 실습 가이드를 먼저 확인합니다.

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="GitHub 팀 바이브코딩 워크숍 실습용 팀 허브 사이트">
+  <title>팀 허브</title>
+  <!-- 공용 스타일(수정 금지) 다음에 역할 D의 테마 스타일을 불러온다 -->
+  <link rel="stylesheet" href="src/styles/base.css">
+  <link rel="stylesheet" href="src/styles/theme.css">
+  <script type="module" src="src/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#app">본문으로 건너뛰기</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="site-title">팀 허브</h1>
+      <button id="theme-toggle" class="btn btn-ghost theme-toggle" type="button" aria-pressed="false">다크 모드</button>
+    </div>
+    <!-- 섹션 바로가기 링크는 app.js가 섹션 목록으로 채운다 -->
+    <nav id="site-nav" class="container site-nav" aria-label="섹션 바로가기"></nav>
+  </header>
+
+  <main id="app" class="container" tabindex="-1">
+    <!-- app.js가 실행되면 이 안내문은 섹션 카드로 바뀐다 -->
+    <div class="card boot-message">
+      <h2>페이지를 불러오는 중입니다</h2>
+      <p>이 안내가 계속 보이면 파일을 직접 연 경우입니다. ES 모듈은 file:// 주소에서 동작하지 않으므로 저장소 폴더에서 아래 명령을 실행한 뒤 http://localhost:8000 을 여십시오.</p>
+      <pre><code>python3 -m http.server 8000</code></pre>
+    </div>
+    <noscript>
+      <div class="card"><p>이 사이트는 JavaScript가 필요합니다. 브라우저 설정에서 JavaScript를 켜십시오.</p></div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer container">
+    <p>vibe-team-lab 팀 허브. GitHub 팀 바이브코딩 워크숍 실습 템플릿입니다. <a href="https://github.com/takjakim/vibe-team-lab">템플릿 저장소</a></p>
+  </footer>
+</body>
+</html>

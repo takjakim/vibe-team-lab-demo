@@ -1,0 +1,440 @@
+/*
+ * 공용 스타일 (수정 금지)
+ * 색과 간격은 모두 CSS 변수로 관리한다. 다크 모드 값은 theme.css(역할 D)가 덮어쓴다.
+ * 각 섹션은 아래 공용 클래스를 조합해서 쓴다.
+ */
+
+:root {
+  color-scheme: light;
+
+  /* 색 */
+  --color-bg: #f5f6f8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #eef0f4;
+  --color-text: #1c2230;
+  --color-muted: #5a6375;
+  --color-border: #dce1e8;
+  --color-accent: #2f5bea;
+  --color-accent-soft: #e7edfd;
+  --color-accent-contrast: #ffffff;
+  --color-danger: #c42b2b;
+  --color-danger-soft: #fde8e8;
+  --color-success: #1d7f47;
+  --color-warning-soft: #fff3d1;
+  --color-focus: #2f5bea;
+
+  /* 글꼴 */
+  --font-sans: system-ui, -apple-system, "Segoe UI", "Apple SD Gothic Neo", "Malgun Gothic", "Noto Sans KR", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+
+  /* 간격과 모양 */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --radius: 12px;
+  --radius-sm: 8px;
+  --shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 2px 6px rgb(16 24 40 / 6%);
+  --container: 720px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-padding-top: 120px;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+code,
+pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+pre {
+  margin: var(--space-3) 0 0;
+  padding: var(--space-3);
+  background: var(--color-surface-muted);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+/* 레이아웃 */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--space-2);
+  top: -48px;
+  padding: var(--space-2) var(--space-3);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  top: var(--space-2);
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-top: var(--space-3);
+  padding-bottom: var(--space-2);
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.site-nav {
+  display: flex;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.site-nav a {
+  color: var(--color-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.site-nav a:hover {
+  color: var(--color-text);
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding-top: var(--space-5);
+  padding-bottom: var(--space-5);
+}
+
+.site-footer {
+  padding-bottom: var(--space-6);
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* 카드와 섹션 */
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: var(--space-5);
+}
+
+.card h2,
+.section-title {
+  margin: 0 0 var(--space-3);
+  font-size: 1.125rem;
+}
+
+.section-body > :first-child {
+  margin-top: 0;
+}
+
+.section-body > :last-child {
+  margin-bottom: 0;
+}
+
+/* 파일을 직접 열었을 때만 보이도록 1.5초 뒤에 나타난다 */
+.boot-message {
+  animation: boot-show 0s linear 1.5s both;
+}
+
+@keyframes boot-show {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
+  }
+}
+
+.placeholder {
+  padding: var(--space-4);
+  border: 2px dashed var(--color-border);
+  border-radius: var(--radius-sm);
+  color: var(--color-muted);
+}
+
+.placeholder p {
+  margin: 0 0 var(--space-1);
+}
+
+.placeholder-title {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+.muted {
+  color: var(--color-muted);
+}
+
+.error {
+  padding: var(--space-3);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  border-radius: var(--radius-sm);
+}
+
+.empty {
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--color-muted);
+}
+
+/* 버튼과 입력 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1);
+  min-height: 40px;
+  padding: 0 var(--space-4);
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn:hover {
+  filter: brightness(1.05);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-text);
+  border-color: var(--color-border);
+}
+
+.btn-danger {
+  background: transparent;
+  color: var(--color-danger);
+  border-color: var(--color-border);
+}
+
+.btn-sm {
+  min-height: 32px;
+  padding: 0 var(--space-3);
+  font-size: 0.875rem;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  min-height: 40px;
+  padding: 0 var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font: inherit;
+}
+
+.field-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.choice-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.choice-group label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+/* 목록 */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.list-item > .grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.is-done .grow {
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+.day-group + .day-group {
+  margin-top: var(--space-4);
+}
+
+.day-group h3 {
+  margin: 0 0 var(--space-2);
+  font-size: 1rem;
+}
+
+.is-today h3 {
+  color: var(--color-accent);
+}
+
+/* 팀 카드 그리드 */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.profile {
+  padding: var(--space-4);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface-muted);
+}
+
+.profile h3 {
+  margin: 0 0 var(--space-1);
+  font-size: 1rem;
+}
+
+.profile p {
+  margin: 0 0 var(--space-1);
+  font-size: 0.925rem;
+}
+
+/* 배지와 배너 */
+.badge {
+  display: inline-block;
+  padding: 2px var(--space-2);
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  color: var(--color-accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.banner {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-sm);
+  background: var(--color-accent-soft);
+  border-left: 4px solid var(--color-accent);
+}
+
+.banner + .banner {
+  margin-top: var(--space-2);
+}
+
+.banner.is-important {
+  background: var(--color-warning-soft);
+  border-left-color: var(--color-danger);
+}
+
+.banner > .grow {
+  flex: 1;
+  min-width: 0;
+}
+
+.banner-title {
+  margin: 0;
+  font-weight: 600;
+}
+
+.banner p {
+  margin: var(--space-1) 0 0;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* 모바일 폭 */
+@media (max-width: 480px) {
+  .card {
+    padding: var(--space-4);
+  }
+
+  .site-title {
+    font-size: 1.1rem;
+  }
+
+  .field-row .btn {
+    width: 100%;
+  }
+}
