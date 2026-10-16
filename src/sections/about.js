@@ -6,26 +6,17 @@ export const meta = { id: 'about', title: '팀 소개', source: 'team.json' };
 
 // 팀원 한 명을 카드로 만든다.
 function card(member) {
-  const github = String(member.github ?? '').trim();
+  // check.mjs가 "@아이디"도 허용하므로 앞의 @를 떼고 링크를 만든다.
+  const github = String(member.github ?? '').trim().replace(/^@/, '');
+  const href = `https://github.com/${encodeURIComponent(github)}`;
+  const link = github
+    ? el('p', {}, el('a', { href, target: '_blank', rel: 'noopener noreferrer' }, `GitHub: ${github}`))
+    : null;
   return el('article', { class: 'profile' }, [
     el('h3', {}, member.name),
     el('p', {}, el('span', { class: 'badge' }, member.role)),
     el('p', {}, member.focus),
-    github
-      ? el(
-          'p',
-          {},
-          el(
-            'a',
-            {
-              href: `https://github.com/${encodeURIComponent(github)}`,
-              target: '_blank',
-              rel: 'noopener noreferrer',
-            },
-            `GitHub: ${github}`,
-          ),
-        )
-      : null,
+    link,
   ]);
 }
 
