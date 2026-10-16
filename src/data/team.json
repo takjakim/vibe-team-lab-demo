@@ -10,5 +10,11 @@
     "role": "예시",
     "focus": "카드 형식을 보여 주는 예시 항목",
     "github": "octocat"
+  },
+  {
+    "name": "강사 (충돌 드릴)",
+    "role": "강사",
+    "focus": "충돌 드릴용 카드입니다. 해결할 때 이 카드와 자기 카드를 모두 남깁니다.",
+    "github": "drill-instructor"
   }
 ]
