@@ -1,4 +1,10 @@
-# vibe-team-lab
+# vibe-team-lab-demo
+
+템플릿 [takjakim/vibe-team-lab](https://github.com/takjakim/vibe-team-lab)에서 생성해 워크숍 실습 2~4(이슈 → 워크트리 → 에이전트 구현 → PR → 리뷰 → Squash 병합 → 충돌 드릴 → 버그 수정)를 실제로 수행한 **완성 예시 저장소**다. 무엇이 어떤 순서로 일어났는지는 [docs/진행기록.md](docs/진행기록.md)에, 병합된 PR 8건과 리뷰 코멘트는 [Pull requests](https://github.com/takjakim/vibe-team-lab-demo/pulls?q=is%3Apr+is%3Amerged)에 있다. 배포 사이트: https://takjakim.kr/vibe-team-lab-demo/
+
+아래는 템플릿의 원래 안내다.
+
+---
 
 GitHub 팀 바이브코딩 워크숍(Orca와 gh CLI로 4~5인 협업)의 실습용 템플릿 저장소다. 빌드 도구 없이 동작하는 바닐라 HTML/CSS/JS "팀 허브" 사이트를 다섯 명이 섹션 하나씩 나누어 완성하면서 이슈, 워크트리, 에이전트, PR, 리뷰, 충돌 해결의 흐름을 익힌다.
 
